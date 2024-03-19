@@ -1,9 +1,19 @@
 # FitMi AI-Model
 
-Revolutionize the way users experience virtual try-ons with our cutting-edge AI model. Seamlessly integrate this model into your applications to enable users to visualize clothing and accessories in a virtual environment.
+Revolutionize the way users experience virtual try-ons with our cutting-edge AI model. Seamlessly integrate this model into your applications to enable users to visualize clothing in a virtual environment.
 > **Abstract**: <br>
+> The word Artificial Intelligence has played a very prominent role, and of late, this term has been gaining much more popularity due to recent advances in the field. Due to these advancements, virtual
+> try-on experiences are now made possible. 
+> virtual try-on can be achieved by taking an image of a person and a garment taken from a catalog, to dress the person with the given try-on garment and has emerged as a promising solution for consumers
+> to virtually try on various items and explore products in their homes or anywhere they want until they find the right choice for them, which is an effective key to the high product return rates, as it
+> significantly reduces the likelihood of dissatisfaction post-purchase and by curbing return rates, it promotes eco-friendly shopping practices.
+> The challenges any virtual try-on model faces are the pose and texture-style transfer in human body images and lately there are many approaches that overcome these transfer limitations with many fine
+> grained differences but often the outputs are low resolution, not photo-realistic or lack texture artifacts, which limits their effectiveness in consumer decision-making.
 >
-> 
+> To enhance the virtual try-on experience,
+> we introduce our project, ```FITMI``` that focuses on outperforming these models by overcoming their obstacles and capturing key features related to human body poses
+> and garment textures, and by that it ensures accurate outputs, authentic, and immersive try-on experience, thereby empowering consumers to make informed purchasing decisions.
+
 
 
 
@@ -19,6 +29,9 @@ Revolutionize the way users experience virtual try-ons with our cutting-edge AI 
 Integrating our Virtual Try-On AI model into your app is straightforward. Follow the following detailed instructions to get started quickly.
 <details>
 <summary><h2>Getting Started</h2></summary>
+
+### Installation
+
 1. Clone the repository
 
 ```sh
@@ -30,17 +43,65 @@ git clone https://github.com/FITMI-APP/AI-Model.git
 conda env create -n FITMI -f FITMI.yml
 conda activate FITMI
 ```
-additionally, you should install the required packages manually:
-1-install cuda 11.8 [here](https://developer.nvidia.com/cuda-11-8-0-download-archive)
-2-Install Microsoft Visual C++ Build Tools: https://visualstudio.microsoft.com/visual-cpp-build-tools/
-3-set "CUDA_PATH=C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v11.8"  # Update the path accordingly
-4-install torch: https://pytorch.org/get-started/locally/ 
-or directly write in your command line: pip3 install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu118)
-5-install cupy : https://docs.cupy.dev/en/stable/install.html#upgrading-cupy 
-or directly write in your command line: pip install cupy-cuda11x
-6-install cuDNN : https://developer.nvidia.com/rdp/cudnn-archive
-copy (lib, include, bin) cuDNN files to the corresponding files in C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v11.8 respectively
-7-pip3 install -U xformers --index-url https://download.pytorch.org/whl/cu118
+
+#### additionally, you should install the required packages manually:
+
+  1-install cuda 11.8 from [here](https://developer.nvidia.com/cuda-11-8-0-download-archive)
+
+  2-Install Microsoft Visual C++ Build Tools from [here](https://visualstudio.microsoft.com/visual-cpp-build-tools/)
+
+  3-set "CUDA_PATH=C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v11.8"  > **Update the path accordingly**
+
+  4-install torch from [here](https://pytorch.org/get-started/locally/)
+    or directly type this in your command line:
+```sh
+pip3 install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu118)
+```
+  5-install cupy from [here](https://docs.cupy.dev/en/stable/install.html#upgrading-cupy)
+    or directly type this in your command line: 
+```sh
+pip install cupy-cuda11x
+```
+  6-install cuDNN from [here](https://developer.nvidia.com/rdp/cudnn-archive)
+
+  7-copy (lib, include, bin) cuDNN files to the corresponding files in C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v11.8 respectively
+
+  8- install xformers
+```sh
+pip3 install -U xformers --index-url https://download.pytorch.org/whl/cu118
+```
+
+### Data Preparation
+ #### checkpoints:
+We provide checkpoints for our preprocessing and recommendation system embeddings. Please download the checkpoints and *.pkl from the [FitMi](https://fcihelwanedu-my.sharepoint.com/:f:/g/personal/tasnim_mohsen_1375_fci_helwan_edu_eg/Eha1Y-GS-6dEoWSpjwTOTJkBiFYrG-hxAF_5UpnQFc3UAg?e=7glxeS) drive.
+Once they are downloaded, the folder structure should look like this:
+
+```
+├── AI-Model
+|   inception-2015-12-05.pt
+|   ├── src
+|   |   ├── inception-2015-12-05.pt
+|   ├── recommendationSystem
+|   |   ├── upper_body
+|   |   ├── lower_body
+|   |   ├── dresses
+|   ├── preProcessing
+|   |   ├── densePose
+|   |   |   ├── projects
+|   |   |   |   ├── DensePose
+|   |   |   |   |   ├── configs
+|   |   |   |   |   |   ├── model_final_162be9.pkl
+|   |   ├── openPose
+|   |   |   ├── model
+|   |   |   |   ├── body_pose_model.pth
+|   |   |   |   ├── hand_pose_model.pth
+|   |   |   |   ├── body_pose.caffemodel
+|   |   |   |   ├── hand_pose.caffemodel
+|   |   ├── Parsing
+|   |   |   ├── checkpoints
+|   |   |   |   ├── exp-schp-201908301523-atr.pth
+```
+
 </details>
 
 ## Citation
