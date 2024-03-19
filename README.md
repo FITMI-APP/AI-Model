@@ -84,13 +84,21 @@ Once they are downloaded, the folder structure should look like this:
 |   ├── recommendationSystem
 |   |   ├── upper_body
 |   |   |   ├── cloth
+|   |   |   |   ├── *add upper_body data here*
 |   |   |   ├── embedding.pkl
+|   |   |   ├── filenames.pkl
 |   |   ├── lower_body
 |   |   |   ├── cloth
+|   |   |   |   ├── *add lower_body data here*
 |   |   |   ├── embedding.pkl
+|   |   |   ├── filenames.pkl
 |   |   ├── dresses
 |   |   |   ├── cloth
+|   |   |   |   ├── *add dresses data here*
 |   |   |   ├── embedding.pkl
+|   |   |   ├── filenames.pkl
+|   |   ├── male_complementary
+|   |   ├── female_complementary
 |   ├── preProcessing
 |   |   ├── densePose
 |   |   |   ├── projects
