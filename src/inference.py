@@ -108,7 +108,7 @@ def parse_args():
 def main():
     args = parse_args()
     preProcess(args.category)
-    recommend_fashion_item(PROJECT_ROOT / "datasets" / "dresscodeDataset" / args.category / "cloth_BG")
+    # recommend_fashion_item(PROJECT_ROOT / "datasets" / "dresscodeDataset" / args.category / "cloth_BG")
     # Check if the dataset dataroot is provided
     if args.dataset == "vitonhd" and args.vitonhd_dataroot is None:
         raise ValueError("VitonHD dataroot must be provided")
