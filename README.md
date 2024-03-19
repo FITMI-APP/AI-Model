@@ -73,7 +73,7 @@ pip3 install -U xformers --index-url https://download.pytorch.org/whl/cu118
 
 ### Data Preparation
  #### checkpoints:
-We provide checkpoints for our preprocessing and recommendation system's embeddings. Please download the checkpoints and *.pkl from our [FitMi](https://fcihelwanedu-my.sharepoint.com/:f:/g/personal/tasnim_mohsen_1375_fci_helwan_edu_eg/Eha1Y-GS-6dEoWSpjwTOTJkBiFYrG-hxAF_5UpnQFc3UAg?e=7glxeS) drive.
+We provide checkpoints for our preprocessing and recommendation system's embeddings in addition to our customized dataset used in our recommendation system. Please download the checkpoints, *.pkl and dataset from our [FitMi](https://fcihelwanedu-my.sharepoint.com/:f:/g/personal/tasnim_mohsen_1375_fci_helwan_edu_eg/Eha1Y-GS-6dEoWSpjwTOTJkBiFYrG-hxAF_5UpnQFc3UAg?e=7glxeS) drive.
 Once they are downloaded, the folder structure should look like this:
 
 ```
@@ -84,10 +84,13 @@ Once they are downloaded, the folder structure should look like this:
 |   ├── recommendationSystem
 |   |   ├── upper_body
 |   |   |   ├── cloth
+|   |   |   ├── embedding.pkl
 |   |   ├── lower_body
 |   |   |   ├── cloth
+|   |   |   ├── embedding.pkl
 |   |   ├── dresses
 |   |   |   ├── cloth
+|   |   |   ├── embedding.pkl
 |   ├── preProcessing
 |   |   ├── densePose
 |   |   |   ├── projects
