@@ -31,7 +31,7 @@ conda env create -n FITMI -f FITMI.yml
 conda activate FITMI
 ```
 additionally, you should install the required packages manually:
-1-install cuda 11.8: https://developer.nvidia.com/cuda-11-8-0-download-archive
+1-install cuda 11.8 [here](https://developer.nvidia.com/cuda-11-8-0-download-archive)
 2-Install Microsoft Visual C++ Build Tools: https://visualstudio.microsoft.com/visual-cpp-build-tools/
 3-set "CUDA_PATH=C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v11.8"  # Update the path accordingly
 4-install torch: https://pytorch.org/get-started/locally/ 
