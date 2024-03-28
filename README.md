@@ -142,6 +142,14 @@ Once they are downloaded, the folder structure should look like this:
 
 </details>
 
+## Inference
+
+To test the model, run the following command:
+
+
+```sh
+python src/inference.py
+```
 ## Citation
 
 If you make use of our work, please cite it using the following format: [Include citation format].
