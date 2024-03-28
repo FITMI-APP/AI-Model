@@ -34,13 +34,15 @@ check_min_version("0.10.0.dev0")
 
 category = "dresses"  # hnakhodha mn GUI
 gender = "male"  # hnakhodha mn GUI
+
+
 def parse_args():
     parser = argparse.ArgumentParser(description="Full inference script")
 
     if category == "upper_body":
         dataset = "vitonhd"
         output_dir = PROJECT_ROOT / "datasets" / "vitonHDDataset" / "test" / "output"
-    else :
+    else:
         dataset = "dresscode"
         output_dir = PROJECT_ROOT / "datasets" / "dresscodeDataset" / category / "output"
     parser.add_argument(
@@ -54,7 +56,7 @@ def parse_args():
         "--output_dir",
         type=str,
         required=False,
-        default= output_dir,
+        default=output_dir,
         help="Path to the output directory",
     )
 
@@ -125,14 +127,28 @@ def main():
         preprocessDresscode(args.category)
     if args.category == "upper_body":
         upper_body_recommend_fashion_item(PROJECT_ROOT / "datasets" / "vitonHDDataset" / "test" / "cloth_BG")
+        if gender == "male":
+            male_complementary_recommend_fashion_item(
+                PROJECT_ROOT / "datasets" / "vitonHDDataset" / "test" / "cloth_BG")
+        if gender == "female":
+            female_complementary_recommend_fashion_item(
+                PROJECT_ROOT / "datasets" / "vitonHDDataset" / "test" / "cloth_BG")
     if args.category == "lower_body":
         lower_body_recommend_fashion_item(PROJECT_ROOT / "datasets" / "dresscodeDataset" / args.category / "cloth_BG")
+        if gender == "male":
+            male_complementary_recommend_fashion_item(
+                PROJECT_ROOT / "datasets" / "dresscodeDataset" / args.category / "cloth_BG")
+        if gender == "female":
+            female_complementary_recommend_fashion_item(
+                PROJECT_ROOT / "datasets" / "dresscodeDataset" / args.category / "cloth_BG")
     if args.category == "dresses":
         dresses_recommend_fashion_item(PROJECT_ROOT / "datasets" / "dresscodeDataset" / args.category / "cloth_BG")
-    if gender == "male":
-        male_complementary_recommend_fashion_item(PROJECT_ROOT / "datasets" / "dresscodeDataset" / args.category / "cloth_BG")
-    if gender == "female":
-        female_complementary_recommend_fashion_item(PROJECT_ROOT / "datasets" / "dresscodeDataset" / args.category / "cloth_BG")
+        if gender == "male":
+            male_complementary_recommend_fashion_item(
+                PROJECT_ROOT / "datasets" / "dresscodeDataset" / args.category / "cloth_BG")
+        if gender == "female":
+            female_complementary_recommend_fashion_item(
+                PROJECT_ROOT / "datasets" / "dresscodeDataset" / args.category / "cloth_BG")
     # Check if the dataset dataroot is provided
     if args.dataset == "vitonhd" and args.vitonhd_dataroot is None:
         raise ValueError("VitonHD dataroot must be provided")
