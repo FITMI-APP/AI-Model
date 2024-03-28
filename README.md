@@ -50,7 +50,7 @@ conda activate FITMI
 
   2-Install Microsoft Visual C++ Build Tools from [here](https://visualstudio.microsoft.com/visual-cpp-build-tools/)
 
-  3-set "CUDA_PATH=C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v11.8"  > **Update the path accordingly**
+  3-set "CUDA_PATH=C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v11.8"   **Update the path accordingly**
 
   4-install torch from [here](https://pytorch.org/get-started/locally/)
     or directly type this in your command line:
@@ -73,7 +73,7 @@ pip3 install -U xformers --index-url https://download.pytorch.org/whl/cu118
 
 ### Data Preparation
  #### checkpoints:
-We provide checkpoints for our preprocessing and recommendation system's embeddings in addition to our customized dataset used in our recommendation system. Please download the checkpoints, *.pkl and dataset from our [FitMi](https://fcihelwanedu-my.sharepoint.com/:f:/g/personal/tasnim_mohsen_1375_fci_helwan_edu_eg/Eha1Y-GS-6dEoWSpjwTOTJkBiFYrG-hxAF_5UpnQFc3UAg?e=7glxeS) drive.
+We provide checkpoints for our preprocessing and recommendation system's embeddings in addition to our customized dataset used in our recommendation system. Please download the checkpoints, *.pkl and dataset from our [FITMI](https://fcihelwanedu-my.sharepoint.com/:f:/g/personal/tasnim_mohsen_1375_fci_helwan_edu_eg/Eha1Y-GS-6dEoWSpjwTOTJkBiFYrG-hxAF_5UpnQFc3UAg?e=7glxeS) drive.
 Once they are downloaded, the folder structure should look like this:
 
 ```
@@ -97,9 +97,18 @@ Once they are downloaded, the folder structure should look like this:
 |   |   |   |   ├── *add dresses data here*
 |   |   |   ├── embedding.pkl
 |   |   |   ├── filenames.pkl
-|   |   ├── male_complementary
-|   |   ├── female_complementary
-|   ├── preProcessing
+|   |   ├── complementary
+|   |   |   ├── male
+|   |   |   |  ├── cloth
+|   |   |   |  |   ├── *add male data here*
+|   |   |   |  ├── embedding.pkl
+|   |   |   |  ├── filenames.pkl
+|   |   |   ├── female
+|   |   |   |  ├── cloth
+|   |   |   |  |   ├── *add female data here*
+|   |   |   |  ├── embedding.pkl
+|   |   |   |  ├── filenames.pkl
+|   ├── dresscode_preProcessing
 |   |   ├── densePose
 |   |   |   ├── projects
 |   |   |   |   ├── DensePose
@@ -114,6 +123,21 @@ Once they are downloaded, the folder structure should look like this:
 |   |   ├── Parsing
 |   |   |   ├── checkpoints
 |   |   |   |   ├── exp-schp-201908301523-atr.pth
+|   ├── vitonHDpreProcessing
+|   |   ├── densePose
+|   |   |   ├── projects
+|   |   |   |   ├── DensePose
+|   |   |   |   |   ├── configs
+|   |   |   |   |   |   ├── model_final_162be9.pkl
+|   |   ├── openPose
+|   |   |   ├── model
+|   |   |   |   ├── body_pose_model.pth
+|   |   |   |   ├── hand_pose_model.pth
+|   |   |   |   ├── body_pose.caffemodel
+|   |   |   |   ├── hand_pose.caffemodel
+|   |   ├── Parsing
+|   |   |   ├── checkpoints
+|   |   |   |   ├── exp-schp-201908261155-lip.pth
 ```
 
 </details>
