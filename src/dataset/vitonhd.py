@@ -10,7 +10,7 @@ from typing import Tuple, Literal
 
 PROJECT_ROOT = Path(__file__).absolute().parents[2].absolute()
 sys.path.insert(0, str(PROJECT_ROOT))
-from numpy.linalg import lstsq
+
 import cv2
 import numpy as np
 import torch
@@ -20,6 +20,7 @@ from PIL import Image, ImageDraw
 
 from src.utils.posemap import get_coco_body25_mapping
 from src.utils.posemap import kpoint_to_heatmap
+from numpy.linalg import lstsq
 
 
 class VitonHDDataset(data.Dataset):

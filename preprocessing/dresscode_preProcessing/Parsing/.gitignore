@@ -1,0 +1,5 @@
+**/__pycache__
+
+mhp_extension/detectron2/detectron2/data/
+log/
+pretrain_model/

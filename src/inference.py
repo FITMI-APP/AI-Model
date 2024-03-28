@@ -19,18 +19,30 @@ from utils.encode_text_word_embedding import encode_text_word_embedding
 from utils.set_seeds import set_seed
 from src.utils.val_metrics import compute_metrics
 from vto_pipelines.tryon_pipe import StableDiffusionTryOnePipeline
-from preProcessing.main import preProcess
-from recommendationSystem.main import recommend_fashion_item
+from preprocessing.dresscode_preProcessing.main import preprocessDresscode
+from preprocessing.vitonHDpreProcessing.main import preprocessVitonhd
+from recommendationSystem.dresses.main import dresses_recommend_fashion_item
+from recommendationSystem.lower_body.main import lower_body_recommend_fashion_item
+from recommendationSystem.upper_body.main import upper_body_recommend_fashion_item
+from recommendationSystem.complementary.male.main import male_complementary_recommend_fashion_item
+from recommendationSystem.complementary.female.main import female_complementary_recommend_fashion_item
 
-# from preProcessing.main import *
+# from dresscode_preProcessing.main import *
 PROJECT_ROOT = Path(__file__).absolute().parents[1].absolute()
 # Will error if the minimal version of diffusers is not installed. Remove at your own risks.
 check_min_version("0.10.0.dev0")
 
-
+category = "dresses"  # hnakhodha mn GUI
+gender = "male"  # hnakhodha mn GUI
 def parse_args():
     parser = argparse.ArgumentParser(description="Full inference script")
-    category = "upper_body"  # hnakhodha mn GUI
+
+    if category == "upper_body":
+        dataset = "vitonhd"
+        output_dir = PROJECT_ROOT / "datasets" / "vitonHDDataset" / "test" / "output"
+    else :
+        dataset = "dresscode"
+        output_dir = PROJECT_ROOT / "datasets" / "dresscodeDataset" / category / "output"
     parser.add_argument(
         "--pretrained_model_name_or_path",
         type=str,
@@ -42,7 +54,7 @@ def parse_args():
         "--output_dir",
         type=str,
         required=False,
-        default=PROJECT_ROOT / "datasets" / "dresscodeDataset" / category / "output",
+        default= output_dir,
         help="Path to the output directory",
     )
 
@@ -79,14 +91,14 @@ def parse_args():
     parser.add_argument('--dresscode_dataroot',
                         default=str(PROJECT_ROOT / "datasets" / "dresscodeDataset") + "/", type=str,
                         help='DressCode dataroot')
-    parser.add_argument('--vitonhd_dataroot', default=PROJECT_ROOT / "datasets" / "vitonHDDataset", type=str,
+    parser.add_argument('--vitonhd_dataroot', default=str(PROJECT_ROOT / "datasets" / "vitonHDDataset"), type=str,
                         help='VitonHD dataroot')
 
     parser.add_argument("--num_workers", type=int, default=8, help="Number of workers for the dataloader")
 
     parser.add_argument("--num_vstar", default=16, type=int, help="Number of predicted v* images to use")
     parser.add_argument("--test_order", type=str, default="unpaired", required=False, choices=["unpaired", "paired"])
-    parser.add_argument("--dataset", type=str, default="dresscode", required=False, choices=["dresscode", "vitonhd"],
+    parser.add_argument("--dataset", type=str, default=dataset, required=False, choices=["dresscode", "vitonhd"],
                         help="dataset to use")
     parser.add_argument("--category", type=str, choices=['all', 'lower_body', 'upper_body', 'dresses'],
                         default=category)
@@ -107,14 +119,25 @@ def parse_args():
 @torch.inference_mode()
 def main():
     args = parse_args()
-    preProcess(args.category)
-    # recommend_fashion_item(PROJECT_ROOT / "datasets" / "dresscodeDataset" / args.category / "cloth_BG")
+    if args.dataset == "vitonhd":
+        preprocessVitonhd()
+    if args.dataset == "dresscode":
+        preprocessDresscode(args.category)
+    if args.category == "upper_body":
+        upper_body_recommend_fashion_item(PROJECT_ROOT / "datasets" / "vitonHDDataset" / "test" / "cloth_BG")
+    if args.category == "lower_body":
+        lower_body_recommend_fashion_item(PROJECT_ROOT / "datasets" / "dresscodeDataset" / args.category / "cloth_BG")
+    if args.category == "dresses":
+        dresses_recommend_fashion_item(PROJECT_ROOT / "datasets" / "dresscodeDataset" / args.category / "cloth_BG")
+    if gender == "male":
+        male_complementary_recommend_fashion_item(PROJECT_ROOT / "datasets" / "dresscodeDataset" / args.category / "cloth_BG")
+    if gender == "female":
+        female_complementary_recommend_fashion_item(PROJECT_ROOT / "datasets" / "dresscodeDataset" / args.category / "cloth_BG")
     # Check if the dataset dataroot is provided
     if args.dataset == "vitonhd" and args.vitonhd_dataroot is None:
         raise ValueError("VitonHD dataroot must be provided")
     if args.dataset == "dresscode" and args.dresscode_dataroot is None:
         raise ValueError("DressCode dataroot must be provided")
-
     # Enable TF32 for faster inference on Ampere GPUs,
     # cf https://pytorch.org/docs/stable/notes/cuda.html#tensorfloat-32-tf32-on-ampere-devices
     if args.allow_tf32:

@@ -1,0 +1,5 @@
+**/__pycache__
+
+mhp_extension/detectron2/projects/DensePose/densepose/data/
+log/
+pretrain_model/
