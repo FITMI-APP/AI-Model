@@ -110,12 +110,12 @@ Once they are downloaded, the folder structure should look like this:
 |   |   |   |  ├── filenames.pkl
 |   ├── preprocessing
 |   |   ├── dresscode_preProcessing
-|   |   |   ├── densePose
+|   |   |   ├── DensePose
 |   |   |   |   ├── projects
 |   |   |   |   |   ├── DensePose
 |   |   |   |   |   |   ├── configs
 |   |   |   |   |   |   |  ├── model_final_162be9.pkl
-|   |   |   ├── openPose
+|   |   |   ├── OpenPose
 |   |   |   |   ├── model
 |   |   |   |   |   ├── body_pose_model.pth
 |   |   |   |   |   ├── hand_pose_model.pth
@@ -125,12 +125,12 @@ Once they are downloaded, the folder structure should look like this:
 |   |   |   |   ├── checkpoints
 |   |   |   |   |   ├── exp-schp-201908301523-atr.pth
 |   |   ├── vitonHDpreProcessing
-|   |   |   ├── densePose
+|   |   |   ├── DensePose
 |   |   |   |   ├── projects
 |   |   |   |   |   ├── DensePose
 |   |   |   |   |   |   ├── configs
 |   |   |   |   |   |   |   ├── model_final_162be9.pkl
-|   |   |   ├── openPose
+|   |   |   ├── OpenPose
 |   |   |   |   ├── model
 |   |   |   |   |   ├── body_pose_model.pth
 |   |   |   |   |   ├── hand_pose_model.pth
