@@ -108,36 +108,37 @@ Once they are downloaded, the folder structure should look like this:
 |   |   |   |  |   ├── *add female data here*
 |   |   |   |  ├── embedding.pkl
 |   |   |   |  ├── filenames.pkl
-|   ├── dresscode_preProcessing
-|   |   ├── densePose
-|   |   |   ├── projects
-|   |   |   |   ├── DensePose
-|   |   |   |   |   ├── configs
-|   |   |   |   |   |   ├── model_final_162be9.pkl
-|   |   ├── openPose
-|   |   |   ├── model
-|   |   |   |   ├── body_pose_model.pth
-|   |   |   |   ├── hand_pose_model.pth
-|   |   |   |   ├── body_pose.caffemodel
-|   |   |   |   ├── hand_pose.caffemodel
-|   |   ├── Parsing
-|   |   |   ├── checkpoints
-|   |   |   |   ├── exp-schp-201908301523-atr.pth
-|   ├── vitonHDpreProcessing
-|   |   ├── densePose
-|   |   |   ├── projects
-|   |   |   |   ├── DensePose
-|   |   |   |   |   ├── configs
-|   |   |   |   |   |   ├── model_final_162be9.pkl
-|   |   ├── openPose
-|   |   |   ├── model
-|   |   |   |   ├── body_pose_model.pth
-|   |   |   |   ├── hand_pose_model.pth
-|   |   |   |   ├── body_pose.caffemodel
-|   |   |   |   ├── hand_pose.caffemodel
-|   |   ├── Parsing
-|   |   |   ├── checkpoints
-|   |   |   |   ├── exp-schp-201908261155-lip.pth
+|   ├── preprocessing
+|   |   ├── dresscode_preProcessing
+|   |   |   ├── densePose
+|   |   |   |   ├── projects
+|   |   |   |   |   ├── DensePose
+|   |   |   |   |   |   ├── configs
+|   |   |   |   |   |   |  ├── model_final_162be9.pkl
+|   |   |   ├── openPose
+|   |   |   |   ├── model
+|   |   |   |   |   ├── body_pose_model.pth
+|   |   |   |   |   ├── hand_pose_model.pth
+|   |   |   |   |   ├── body_pose.caffemodel
+|   |   |   |   |   ├── hand_pose.caffemodel
+|   |   |   ├── Parsing
+|   |   |   |   ├── checkpoints
+|   |   |   |   |   ├── exp-schp-201908301523-atr.pth
+|   |   ├── vitonHDpreProcessing
+|   |   |   ├── densePose
+|   |   |   |   ├── projects
+|   |   |   |   |   ├── DensePose
+|   |   |   |   |   |   ├── configs
+|   |   |   |   |   |   |   ├── model_final_162be9.pkl
+|   |   |   ├── openPose
+|   |   |   |   ├── model
+|   |   |   |   |   ├── body_pose_model.pth
+|   |   |   |   |   ├── hand_pose_model.pth
+|   |   |   |   |   ├── body_pose.caffemodel
+|   |   |   |   |   ├── hand_pose.caffemodel
+|   |   |   ├── Parsing
+|   |   |   |   ├── checkpoints
+|   |   |   |   |   ├── exp-schp-201908261155-lip.pth
 ```
 
 </details>
