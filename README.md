@@ -1,4 +1,4 @@
-# FitMi AI-Model
+# FITMI AI-Model
 
 Revolutionize the way users experience virtual try-ons with our cutting-edge AI model. Seamlessly integrate this model into your applications to enable users to visualize clothing in a virtual environment.
 > **Abstract**: <br>
@@ -44,29 +44,28 @@ conda env create -n FITMI -f FITMI.yml
 conda activate FITMI
 ```
 
-#### additionally, you should install the required packages manually:
+### additionally, you should install the required packages manually:
 
-  1-install cuda 11.8 from [here](https://developer.nvidia.com/cuda-11-8-0-download-archive)
+   1. install **[cuda 11.8](https://developer.nvidia.com/cuda-11-8-0-download-archive)**
 
-  2-Install Microsoft Visual C++ Build Tools from [here](https://visualstudio.microsoft.com/visual-cpp-build-tools/)
+   2. Install [Microsoft Visual C++ Build Tools](https://visualstudio.microsoft.com/visual-cpp-build-tools/)
 
-  3-set "CUDA_PATH=C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v11.8"   **Update the path accordingly**
+   3. set in your environment variables "CUDA_PATH=C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v11.8"   **Update the path accordingly**
 
-  4-install torch from [here](https://pytorch.org/get-started/locally/)
+   4. install [torch](https://pytorch.org/get-started/locally/)
     or directly type this in your command line:
 ```sh
 pip3 install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu118)
 ```
-  5-install cupy from [here](https://docs.cupy.dev/en/stable/install.html#upgrading-cupy)
-    or directly type this in your command line: 
+   5. install [cupy](https://docs.cupy.dev/en/stable/install.html#upgrading-cupy) or directly type this in your command line: 
 ```sh
 pip install cupy-cuda11x
 ```
-  6-install cuDNN from [here](https://developer.nvidia.com/rdp/cudnn-archive)
+   6. install [cuDNN](https://developer.nvidia.com/rdp/cudnn-archive)
 
-  7-copy (lib, include, bin) cuDNN files to the corresponding files in C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v11.8 respectively
+   7. copy (lib, include, bin) cuDNN files to the corresponding files in C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v11.8 respectively
 
-  8- install xformers
+   8. install xformers
 ```sh
 pip3 install -U xformers --index-url https://download.pytorch.org/whl/cu118
 ```
