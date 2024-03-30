@@ -54,20 +54,32 @@ conda activate FITMI
 
    4. install [torch](https://pytorch.org/get-started/locally/)
     or directly type this in your command line:
+
 ```sh
 pip3 install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu118)
 ```
-   5. install [cupy](https://docs.cupy.dev/en/stable/install.html#upgrading-cupy) or directly type this in your command line: 
+
+   5. install [cupy](https://docs.cupy.dev/en/stable/install.html#upgrading-cupy) or directly type this in your command line:
+
 ```sh
 pip install cupy-cuda11x
 ```
+
    6. install [cuDNN](https://developer.nvidia.com/rdp/cudnn-archive)
 
    7. copy (lib, include, bin) cuDNN files to the corresponding files in C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v11.8 respectively
 
    8. install xformers
+
 ```sh
 pip3 install -U xformers --index-url https://download.pytorch.org/whl/cu118
+```
+**note: you may need to reinstall the torch if it got uninstalled from this step**
+
+  9. install detectron2
+
+```sh
+      !python -m pip install 'git+https://github.com/facebookresearch/detectron2.git'
 ```
 
 ### Data Preparation
