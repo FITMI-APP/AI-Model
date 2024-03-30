@@ -79,7 +79,7 @@ pip3 install -U xformers --index-url https://download.pytorch.org/whl/cu118
   9. install detectron2
 
 ```sh
-      !python -m pip install 'git+https://github.com/facebookresearch/detectron2.git'
+python -m pip install 'git+https://github.com/facebookresearch/detectron2.git'
 ```
 
 ### Data Preparation
