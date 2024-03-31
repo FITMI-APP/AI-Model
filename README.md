@@ -83,7 +83,7 @@ python -m pip install 'git+https://github.com/facebookresearch/detectron2.git'
 ```
 
 ### Data Preparation
- #### checkpoints:
+ #### checkpoints and dataset:
 We provide checkpoints for our preprocessing and recommendation system's embeddings in addition to our customized dataset used in our recommendation system. Please download the checkpoints, *.pkl and dataset from our [FITMI](https://fcihelwanedu-my.sharepoint.com/:f:/g/personal/tasnim_mohsen_1375_fci_helwan_edu_eg/Eha1Y-GS-6dEoWSpjwTOTJkBiFYrG-hxAF_5UpnQFc3UAg?e=7glxeS) drive.
 Once they are downloaded, the folder structure should look like this:
 
