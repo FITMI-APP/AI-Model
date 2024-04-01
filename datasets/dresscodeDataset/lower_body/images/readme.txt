@@ -1,0 +1,1 @@
+the person image end with "_0.jpg" and the cloth image end with "_1.jpg" should be here
