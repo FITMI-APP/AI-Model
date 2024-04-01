@@ -56,7 +56,7 @@ conda activate FITMI
     or directly type this in your command line:
 
 ```sh
-pip3 install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu118)
+pip3 install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu118
 ```
 
    5. install [cupy](https://docs.cupy.dev/en/stable/install.html#upgrading-cupy) or directly type this in your command line:
