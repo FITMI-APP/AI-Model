@@ -45,7 +45,7 @@ dataset_settings = {
         'label': ['Background', 'Head', 'Torso', 'Upper Arms', 'Lower Arms', 'Upper Legs', 'Lower Legs'],
     }
 }
-model_restore = PARENT_ROOT / "checkpoints" / "exp-schp-201908301523-atr.pth"
+model_restore = PARENT_ROOT / "checkpoints" / "exp-schp-201908261155-lip.pth"
 gpu = '0'
 # def get_arguments():
 #     """Parse all the arguments provided from the CLI.
@@ -104,9 +104,9 @@ def parsingExtractor(input_dir,output_dir,logits):
     if not gpu == 'None':
         os.environ["CUDA_VISIBLE_DEVICES"] = gpu
 
-    num_classes = dataset_settings['atr']['num_classes']
-    input_size = dataset_settings['atr']['input_size']
-    label = dataset_settings['atr']['label']
+    num_classes = dataset_settings['lip']['num_classes']
+    input_size = dataset_settings['lip']['input_size']
+    label = dataset_settings['lip']['label']
     print("Evaluating total class number {} with {}".format(num_classes, label))
 
     model = networks.init_model('resnet101', num_classes=num_classes, pretrained=None)

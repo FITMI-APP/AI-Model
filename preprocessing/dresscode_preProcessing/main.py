@@ -15,8 +15,8 @@ def preprocessDresscode(category):
     files = os.listdir(root + "/images")
 
     # Separate person images and cloth images
-    person_images = [file for file in files if file.endswith('_0.jpg')]
-    cloth_images = [file for file in files if file.endswith('_1.jpg')]
+    person_images = [file for file in files if file.endswith('_0.jpg') or file.endswith("_0.jpeg") or file.endswith("_0.png")]
+    cloth_images = [file for file in files if file.endswith('_1.jpg') or file.endswith("_1.jpeg") or file.endswith("_1.png")]
     print("All files in directory:", files)
     print("Person images:", person_images)
     print("Cloth images:", cloth_images)

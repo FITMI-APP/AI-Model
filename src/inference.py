@@ -33,7 +33,7 @@ PROJECT_ROOT = Path(__file__).absolute().parents[1].absolute()
 check_min_version("0.10.0.dev0")
 
 category = "dresses"  # hnakhodha mn GUI
-gender = "male"  # hnakhodha mn GUI
+gender = "female"  # hnakhodha mn GUI
 
 
 def parse_args():

@@ -353,7 +353,7 @@ def denseposeExtractor(input_data, output_path):
         str(PARENT_ROOT / "configs" / "densepose_rcnn_R_50_FPN_s1x.yaml"),
         str(PARENT_ROOT / "configs" / "model_final_162be9.pkl"),
         input_data,
-        "dp_u",
+        "dp_segm",
         "-v"
     ]
 
