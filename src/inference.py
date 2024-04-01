@@ -19,32 +19,34 @@ from utils.encode_text_word_embedding import encode_text_word_embedding
 from utils.set_seeds import set_seed
 from src.utils.val_metrics import compute_metrics
 from vto_pipelines.tryon_pipe import StableDiffusionTryOnePipeline
+from preprocessing.dresscode_preProcessing.main import Dresscode_replace_file_extension_with_jpg
+from preprocessing.dresscode_preProcessing.main import Dresscode_update_pairs_file
 from preprocessing.dresscode_preProcessing.main import preprocessDresscode
 from preprocessing.vitonHDpreProcessing.main import preprocessVitonhd
+from preprocessing.vitonHDpreProcessing.main import VitonHD_update_pairs_file
+from preprocessing.vitonHDpreProcessing.main import VitonHD_replace_file_extension_with_jpg
 from recommendationSystem.dresses.main import dresses_recommend_fashion_item
 from recommendationSystem.lower_body.main import lower_body_recommend_fashion_item
 from recommendationSystem.upper_body.main import upper_body_recommend_fashion_item
 from recommendationSystem.complementary.male.main import male_complementary_recommend_fashion_item
 from recommendationSystem.complementary.female.main import female_complementary_recommend_fashion_item
 
-# from dresscode_preProcessing.main import *
 PROJECT_ROOT = Path(__file__).absolute().parents[1].absolute()
-# Will error if the minimal version of diffusers is not installed. Remove at your own risks.
 check_min_version("0.10.0.dev0")
 
-category = "dresses"  # hnakhodha mn GUI
+input_category = "upper_body"  # hnakhodha mn GUI
 gender = "female"  # hnakhodha mn GUI
 
 
 def parse_args():
     parser = argparse.ArgumentParser(description="Full inference script")
 
-    if category == "upper_body":
+    if input_category == "upper_body":
         dataset = "vitonhd"
         output_dir = PROJECT_ROOT / "datasets" / "vitonHDDataset" / "test" / "output"
     else:
         dataset = "dresscode"
-        output_dir = PROJECT_ROOT / "datasets" / "dresscodeDataset" / category / "output"
+        output_dir = PROJECT_ROOT / "datasets" / "dresscodeDataset" / input_category / "output"
     parser.add_argument(
         "--pretrained_model_name_or_path",
         type=str,
@@ -103,7 +105,7 @@ def parse_args():
     parser.add_argument("--dataset", type=str, default=dataset, required=False, choices=["dresscode", "vitonhd"],
                         help="dataset to use")
     parser.add_argument("--category", type=str, choices=['all', 'lower_body', 'upper_body', 'dresses'],
-                        default=category)
+                        default=input_category)
     parser.add_argument("--use_png", default=False, action="store_true", help="Whether to use png or jpg for saving")
     parser.add_argument("--num_inference_steps", default=50, type=int, help="Number of diffusion steps")
     parser.add_argument("--guidance_scale", default=7.5, type=float, help="Guidance scale")
@@ -122,8 +124,12 @@ def parse_args():
 def main():
     args = parse_args()
     if args.dataset == "vitonhd":
+        VitonHD_replace_file_extension_with_jpg()
+        VitonHD_update_pairs_file()
         preprocessVitonhd()
     if args.dataset == "dresscode":
+        Dresscode_replace_file_extension_with_jpg(args.category)
+        Dresscode_update_pairs_file(args.category)
         preprocessDresscode(args.category)
     if args.category == "upper_body":
         upper_body_recommend_fashion_item(PROJECT_ROOT / "datasets" / "vitonHDDataset" / "test" / "cloth_BG")
@@ -357,6 +363,10 @@ def main():
             cloth_input_type='warped',
             num_inference_steps=args.num_inference_steps
         ).images
+
+        # Delete all files in the directory
+        for filename in os.listdir(os.path.join(save_dir, input_category)):
+            os.remove(os.path.join(save_dir, input_category, filename))
 
         # Save images
         for gen_image, cat, name in zip(generated_images, category, batch["im_name"]):
