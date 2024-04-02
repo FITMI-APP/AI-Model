@@ -40,7 +40,7 @@ git clone https://github.com/FITMI-APP/AI-Model.git
 2. Install Python dependencies
 
 ```sh
-conda env create -n FITMI -f FITMI.yml
+conda env create -n FITMI -f FITMI.yaml
 conda activate FITMI
 ```
 
