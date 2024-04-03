@@ -84,7 +84,7 @@ python -m pip install 'git+https://github.com/facebookresearch/detectron2.git'
  10. install these packages
      
 ```sh
-pip install transformers==4.27.3 accelerate==0.18.0 diffusers==0.14.0 clean-fid==0.1.35 torchmetrics rembg ninja av
+pip install transformers==4.27.3 accelerate==0.18.0 diffusers==0.14.0 clean-fid==0.1.35 torchmetrics rembg ninja av tensorflow
 ```
 
 ### Data Preparation
