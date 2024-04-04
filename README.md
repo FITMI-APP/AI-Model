@@ -50,9 +50,11 @@ conda activate FITMI
 
    2. Install [Microsoft Visual C++ Build Tools](https://visualstudio.microsoft.com/visual-cpp-build-tools/)
 
-   3. set in your environment variables "CUDA_PATH=C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v11.8"   **Update the path accordingly**
+   3. set in your environment variables path "C:\Program Files\Microsoft Visual Studio\20xx\Community\VC\Tools\MSVC\14.x.xxxx\bin\Hostx64\x64" **Update the path accordingly**
 
-   4. install [torch](https://pytorch.org/get-started/locally/)
+   4. set in your environment variables "CUDA_PATH=C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v11.8"   **Update the path accordingly**
+
+   5. install [torch](https://pytorch.org/get-started/locally/)
     or directly type this in your command line:
 
 ```sh
@@ -81,10 +83,15 @@ pip3 install -U xformers --index-url https://download.pytorch.org/whl/cu118
 ```sh
 python -m pip install 'git+https://github.com/facebookresearch/detectron2.git'
 ```
+
  10. install these packages
      
 ```sh
-pip install transformers==4.27.3 accelerate==0.18.0 diffusers==0.14.0 clean-fid==0.1.35 torchmetrics rembg ninja av tensorflow scikit-learn huggingface-hub==0.19.4
+pip install accelerate==0.18.0 diffusers==0.14.0 clean-fid==0.1.35 transformers==4.27.3 torchmetrics rembg ninja av tensorflow scikit-learn huggingface-hub==0.19.4
+```
+
+```sh
+conda install -c conda-forge opencv
 ```
 
 ### Data Preparation
