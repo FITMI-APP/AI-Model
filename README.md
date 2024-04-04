@@ -1,6 +1,6 @@
 # FITMI AI-Model
 
-[![Open in colab](https://colab.research.google.com/assets/colab-badge.svg)](https://drive.google.com/file/d/1bJ_vtLMFSemKhniYig93jeXFL6Wp-22G/view?usp=sharing)
+[![Open in colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1LTPovZF6XdsjVqOa_QzbORBjup7YSrjf?usp=sharing)
 
 Revolutionize the way users experience virtual try-ons with our cutting-edge AI model. Seamlessly integrate this model into your applications to enable users to visualize clothing in a virtual environment.
 > **Abstract**: <br>
