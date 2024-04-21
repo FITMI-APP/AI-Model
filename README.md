@@ -103,9 +103,6 @@ Once they are downloaded, the folder structure should look like this:
 
 ```
 ├── AI-Model
-|   inception-2015-12-05.pt
-|   ├── src
-|   |   ├── inception-2015-12-05.pt
 |   ├── recommendationSystem
 |   |   ├── upper_body
 |   |   |   ├── cloth
