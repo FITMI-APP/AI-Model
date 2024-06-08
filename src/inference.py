@@ -38,7 +38,8 @@ input_category = "upper_body"  # hnakhodha mn GUI
 gender = "female"  # hnakhodha mn GUI
 
 
-def parse_args():
+
+def parse_args(input_category):
     parser = argparse.ArgumentParser(description="Full inference script")
 
     if input_category == "upper_body":
@@ -119,10 +120,9 @@ def parse_args():
 
     return args
 
-
 @torch.inference_mode()
 def main():
-    args = parse_args()
+    args = parse_args(input_category)
     if args.dataset == "vitonhd":
         VitonHD_replace_file_extension_with_jpg()
         VitonHD_update_pairs_file()
@@ -380,7 +380,6 @@ def main():
             else:
                 gen_image.save(
                     os.path.join(save_dir, cat, name), quality=95)
-
     # Free up memory
     del val_pipe
     del text_encoder
@@ -390,6 +389,7 @@ def main():
     del tps
     del refinement
     del vision_encoder
+    #gc.collect()
     torch.cuda.empty_cache()
 
     # Compute metrics if requested
@@ -399,6 +399,9 @@ def main():
 
         with open(os.path.join(save_dir, f"metrics_{args.test_order}_{args.category}.json"), "w+") as f:
             json.dump(metrics, f, indent=4)
+    
+
+
 
 
 if __name__ == "__main__":
